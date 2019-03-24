@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
 
 <h2>StarWars Films</h2>
 
 <table>
   <tr>
+    <th>Episode_id</th>
     <th>Title</th>
     <th>Release date</th>
     <th>Director</th>
     <th>Producer(s)</th>
-    <th>Episode_id</th>
   </tr>
   {% for movie in data%}
     <tr>
-      <td><a href="{% url movie {{movie.url_id}}%}" >{{movie.title}}</a></td>
+      <td>{{movie.episode_id}}</td>
+      <td><a href="{% url 'movie' movie.url_id %}"> {{movie.title}}</a></td>
       <td>{{movie.release_date}}</td>
       <td>{{movie.director}}</td>
       <td>{{movie.producer}}</td>
-      <td>{{movie.episode_id}}</td>
     </tr>
   {% endfor %}
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2> About Episode {{data.episode_id}} : {{data.title}}</h2>
+
+<table>
+    <tr>
+      <th>Title:</th>
+      <td>{{data.title}}</td>
+    </tr>
+    <tr>
+      <th>Episode id:</th>
+      <td>{{data.episode_id}}</td>
+    </tr>
+    <tr>
+      <th>Release date:</th>
+      <td>{{data.release_date}}</td>
+    </tr>
+    <tr>
+      <th>Director:</th>
+      <td>{{data.director}}</td>
+    </tr>
+    <tr>
+      <th>Producer(s):</th>
+      <td>{{data.producer}}</td>
+    </tr>
+    <tr>
+      <th>Characters:</th>
+      <td>
+        
+      <ul>
+      {% for character in data.characters%}
+      <li><a href="{% url 'people' character.url_id %}"> {{character.name}}</a></li>
+      {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <th>Planets:</th>
+      <td>
+      <ul>
+      {% for planet in data.planets%}
+      <li><a href="{% url 'planet' planet.url_id %}"> {{planet.name}}</a></li>
+      {% endfor %}
+      </td>
+    </tr>
+    <tr>
+      <th>Starships:</th>
+      <td>
+      <ul>
+      {% for starship in data.starships%}
+      <li><a href="{% url 'starship' starship.url_id %}"> {{starship.name}}</a></li>
+      {% endfor %}
+      </td>
+    </tr>
+
+
+</table>
+
+</body>
+</html>
