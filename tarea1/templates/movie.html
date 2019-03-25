@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <h2> About Episode {{data.episode_id}} : {{data.title}}</h2>
 
 <table>
@@ -55,9 +54,5 @@
       </ul>
       </td>
     </tr>
-
-
 </table>
-
-</body>
-</html>
+{% endblock content %}

@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2> Search results of {{data.search_text}} </h2>
+
+<table>
+
+    <tr>
+      <th>Films:</th>
+      <td>
+
+      <ul>
+      {% for film in data.films%}
+      <li><a href="{% url 'movie' film.url_id %}"> {{film.title}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>People:</th>
+      <td>
+      <ul>
+      {% for character in data.people%}
+      <li><a href="{% url 'people' character.url_id %}"> {{character.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Starships:</th>
+      <td>
+      <ul>
+      {% for starship in data.starships%}
+      <li><a href="{% url 'starship' starship.url_id %}"> {{starship.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Planets:</th>
+      <td>
+      <ul>
+      {% for planet in data.planets%}
+      <li><a href="{% url 'planet' planet.url_id %}"> {{planet.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+
+
+</table>
+{% endblock content %}

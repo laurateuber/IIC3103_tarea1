@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Starwars</title>
+        <h1>StarWars Website</h1>
+        <th>Search for any Starwars content!</th>
+        <form action= "{% url 'search' %}" method=GET>
+          <input type = "text" name = "q", placeholder="Search...">
+          <button type = "submit"> Search </button>
+        </form>
+    </head>
+
+    <body>
+    {% block content %}{% endblock content %}
+    </body>
+
+</html>

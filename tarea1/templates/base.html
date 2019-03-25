@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+      <style>
+        ul#menu li { display:inline;
+        }
+</style>
+        <title>Starwars</title>
+        <h1>StarWars Website</h1>
+
+<ul id="menu">
+  <li>
+    <th>Search for any Starwars content!</th>
+    <form action= "{% url 'search' %}" method=GET>
+      <input type = "text" name = "q", placeholder="Search...">
+      <button type = "submit"> Search </button>
+    </form>
+  </li
+  <li><a href="{% url 'index' %}">  Menu</a></li>
+  <li><a href="{{request.META.HTTP_REFERER}}">   Back</a></li>
+</ul>
+    </head>
+
+    <body>
+    {% block content %}{% endblock content %}
+    </body>
+
+</html>

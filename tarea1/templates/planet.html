@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <h2> About Planet {{data.name}}: </h2>
 <table>
     <tr>
@@ -61,6 +60,4 @@
     </tr>
 
 </table>
-
-</body>
-</html>
+{% endblock content %}

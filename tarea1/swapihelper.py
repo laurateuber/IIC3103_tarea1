@@ -55,10 +55,30 @@ def get_info_from_urls(url_list):
         par_name = "name"
         initial_data = json.loads(requests.get(url).text)
         lista = url.split("/")
-        if "planet" in lista:
-            print("entrooo")
         if "films" in lista:
             par_name = "title"
         url_id = url.strip().split('/')[-2]
         processed_data.append({"url_id": url_id, par_name : initial_data[par_name]})
     return processed_data
+
+def get_search_results(search_text):
+    categories = ["films", "people", "starships", "planets"]
+    search_results = {cat : [] for cat in categories}
+    for cat in categories:
+        hay_next = True
+        url = "https://swapi.co/api/{0}/?search={1}".format(cat, search_text)
+        while hay_next:
+            results = json.loads(requests.get(url).text)
+            for result in results["results"]:
+                if cat == "films":
+                    search_results[cat].append({"title": result["title"],
+                    "url_id": result["url"].strip().split('/')[-2]})
+                else:
+                    search_results[cat].append({"name": result["name"],
+                    "url_id": result["url"].strip().split('/')[-2]})
+            if results["next"] == None:
+                hay_next = False
+            else:
+                url = results["next"]
+    search_results["search_text"] = search_text
+    return search_results

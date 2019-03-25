@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <h2> About Character {{data.name}}: </h2>
 
 <table>
@@ -63,9 +62,5 @@
       </td>
     </tr>
 
-
-
 </table>
-
-</body>
-</html>
+{% endblock content %}
