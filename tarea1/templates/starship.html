@@ -1,7 +1,82 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2> About hola </h2>
-<th>{{data}}</th>
+<h2> About Starship {{data.name}}: </h2>
+<table>
+    <tr>
+      <th>Name:</th>
+      <td>{{data.name}}</td>
+    </tr>
+    <tr>
+      <th>Model:</th>
+      <td>{{data.model}}</td>
+    </tr>
+    <tr>
+      <th>Manufacturer:</th>
+      <td>{{data.manufacturer}}</td>
+    </tr>
+    <tr>
+      <th>Cost in credits:</th>
+      <td>{{data.cost_in_credits}}</td>
+    </tr>
+    <tr>
+      <th>Length:</th>
+      <td>{{data.length}}</td>
+    </tr>
+    <tr>
+      <th>Max atmosphering speed:</th>
+      <td>{{data.max_atmosphering_speed}}</td>
+    </tr>
+    <tr>
+      <th>Crew:</th>
+      <td>{{data.crew}}</td>
+    </tr>
+    <tr>
+      <th>Passengers:</th>
+      <td>{{data.passengers}}</td>
+    </tr>
+    <tr>
+      <th>Cargo capacity:</th>
+      <td>{{data.cargo_capacity}}</td>
+    </tr>
+    <tr>
+      <th>Consumables:</th>
+      <td>{{data.consumables}}</td>
+    </tr>
+    <tr>
+      <th>Hyperdrive rating:</th>
+      <td>{{data.hyperdrive_rating}}</td>
+    </tr>
+    <tr>
+      <th>MGLT:</th>
+      <td>{{data.MGLT}}</td>
+    </tr>
+    <tr>
+      <th>Starship class:</th>
+      <td>{{data.starship_class}}</td>
+    </tr>
+    <tr>
+      <th>Pilots:</th>
+      <td>
+      <ul>
+      {% for pilot in data.pilots%}
+      <li><a href="{% url 'people' pilot.url_id %}"> {{pilot.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Films:</th>
+      <td>
+      <ul>
+      {% for film in data.films%}
+      <li><a href="{% url 'movie' film.url_id %}"> {{film.title}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+
+</table>
+
 </body>
 </html>

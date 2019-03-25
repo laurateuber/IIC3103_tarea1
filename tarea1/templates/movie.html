@@ -27,11 +27,12 @@
     <tr>
       <th>Characters:</th>
       <td>
-        
+
       <ul>
       {% for character in data.characters%}
       <li><a href="{% url 'people' character.url_id %}"> {{character.name}}</a></li>
       {% endfor %}
+      </ul>
       </td>
     </tr>
     <tr>
@@ -41,6 +42,7 @@
       {% for planet in data.planets%}
       <li><a href="{% url 'planet' planet.url_id %}"> {{planet.name}}</a></li>
       {% endfor %}
+      </ul>
       </td>
     </tr>
     <tr>
@@ -50,6 +52,7 @@
       {% for starship in data.starships%}
       <li><a href="{% url 'starship' starship.url_id %}"> {{starship.name}}</a></li>
       {% endfor %}
+      </ul>
       </td>
     </tr>
 

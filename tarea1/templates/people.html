@@ -1,7 +1,71 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2> About hola </h2>
-<th>{{data}}</th>
+<h2> About Character {{data.name}}: </h2>
+
+<table>
+    <tr>
+      <th>Name:</th>
+      <td>{{data.name}}</td>
+    </tr>
+    <tr>
+      <th>Height:</th>
+      <td>{{data.height}}</td>
+    </tr>
+    <tr>
+      <th>Mass:</th>
+      <td>{{data.mass}}</td>
+    </tr>
+    <tr>
+      <th>Hair color:</th>
+      <td>{{data.hair_color}}</td>
+    </tr>
+    <tr>
+      <th>Skin color:</th>
+      <td>{{data.skin_color}}</td>
+    </tr>
+    <tr>
+      <th>Eye color:</th>
+      <td>{{data.eye_color}}</td>
+    </tr>
+    <tr>
+      <th>Birth year:</th>
+      <td>{{data.birth_year}}</td>
+    </tr>
+    <tr>
+      <th>Gender:</th>
+      <td>{{data.gender}}</td>
+    </tr>
+    <tr>
+      <th>Homeworld:</th>
+      {% for planet in data.homeworld%}
+      <td><a href="{% url 'planet' planet.url_id %}"> {{planet.name}}</a></td>
+      {% endfor %}
+    </tr>
+    <tr>
+      <th>Films:</th>
+      <td>
+      <ul>
+      {% for film in data.films%}
+      <li><a href="{% url 'movie' film.url_id %}"> {{film.title}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Starships:</th>
+      <td>
+      <ul>
+      {% for starship in data.starships%}
+      <li><a href="{% url 'starship' starship.url_id %}"> {{starship.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+
+
+
+</table>
+
 </body>
 </html>

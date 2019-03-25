@@ -1,7 +1,66 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2> About hola </h2>
-<th>{{data}}</th>
+<h2> About Planet {{data.name}}: </h2>
+<table>
+    <tr>
+      <th>Name:</th>
+      <td>{{data.name}}</td>
+    </tr>
+    <tr>
+      <th>Rotation period:</th>
+      <td>{{data.rotation_period}}</td>
+    </tr>
+    <tr>
+      <th>Orbital period:</th>
+      <td>{{data.orbital_period}}</td>
+    </tr>
+    <tr>
+      <th>Diameter:</th>
+      <td>{{data.diameter}}</td>
+    </tr>
+    <tr>
+      <th>Climate:</th>
+      <td>{{data.climate}}</td>
+    </tr>
+    <tr>
+      <th>Gravity:</th>
+      <td>{{data.gravity}}</td>
+    </tr>
+    <tr>
+      <th>Terrain:</th>
+      <td>{{data.terrain}}</td>
+    </tr>
+    <tr>
+      <th>Surface water:</th>
+      <td>{{data.surface_water}}</td>
+    </tr>
+    <tr>
+      <th>Population:</th>
+      <td>{{data.population}}</td>
+    </tr>
+    <tr>
+      <th>Residents:</th>
+      <td>
+      <ul>
+      {% for resident in data.residents%}
+      <li><a href="{% url 'people' resident.url_id %}"> {{resident.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Films:</th>
+      <td>
+      <ul>
+      {% for film in data.films%}
+      <li><a href="{% url 'movie' film.url_id %}"> {{film.title}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+
+</table>
+
 </body>
 </html>
